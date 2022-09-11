@@ -9,7 +9,7 @@ class Pyrite {
     }
   }
   
-  const pyrite = new Pyrite();
+  exports.pyrite = new Pyrite();
   
   class PyriteElement {
     native;

@@ -69,6 +69,22 @@ class PyriteElement {
     return this;
   }
 
+  withChangeEffect(callback) {
+    this.native.onchange = callback;
+  }
+
+  withStyleSheet(href) {
+    const styleSheet = pyrite.element('link')
+      .withProps({ 
+        rel: 'stylesheet',
+        type: 'text/css',
+        href
+      });
+
+    this.withChildren([styleSheet]);
+    return this;
+  }
+
   withProps(props) {
     if (!props) return this;
     Object.keys(props).forEach(prop => this.native[prop] = props[prop]);

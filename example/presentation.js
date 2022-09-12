@@ -33,7 +33,9 @@ class Presentation extends PyriteElement {
   children = [
     new PresentationTitle(),
     pyrite.element('p')
-      .withText('Here is a simple to-do app built with Pyrite.'),
+      .withText('Here is a simple to-do app built with Pyrite.')
+      .withClasses(['message'])
+      .withStyleSheet('message.css'),
     new AddToDoSection(text => this.addToDo(text))
   ];
 

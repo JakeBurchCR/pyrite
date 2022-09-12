@@ -107,7 +107,7 @@ buildFavoriteCereals() {
 
 ### Usage
 
-Some day this will be a importable module, but for now:
+Some day this will be an importable module, but for now:
 
 ```
 yarn add @jakeburch/pyrite

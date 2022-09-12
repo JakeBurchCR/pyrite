@@ -1,5 +1,7 @@
 # Pyrite
 
+[@jakeburch/pyrite on GitHub](https://github.com/JakeBurchCR/pyrite)
+
 ### Examples
 
 Pyrite provides a framework for managing the DOM via Javascript. 
@@ -109,6 +111,23 @@ class CerealTime extends PyriteElement {
 
 const cerealTime = new CerealTime();
 ```
+
+Stylesheets can be dynamically added to a `PyriteElement`:
+```js
+pyrite.element('p')
+  .withText('Hello there!')
+  .withClasses(['message'])
+  .withStyleSheet('message.css')
+```
+```css
+.message {
+  color: blue;
+}
+```
+
+Styleets added this way are removed from the DOM when the element they're attached to is removed.
+
+NOTE: You'll need to handle scoping with CSS classes, as I've demonstrated above.
 
 ### Usage
 

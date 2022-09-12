@@ -86,23 +86,28 @@ Maybe you have a simple, static DOM structure, and you don't really benefit from
 With Pyrite, we can not only programmatically build DOM structure fragments, but also watch for changes to the backing property and live-rebuild accordingly:
 
 ```ts
-ul = pyrite.element('ul');
-document.body.appendChild(ul.native);
+class CerealTime extends PyriteElement {
+  cereals;
+  
+  constructor() {
+    document.body.appendChild(this.native);
+  }
+  
+  detectChanges(prop) {
+    if (prop === 'cereals') {
+      this.buildFavoriteCereals();
+    }
+  }
 
-// ...
-
-detectChanges(prop, target) {
-  if (prop === 'cereals') {
-    buildFavoriteCereals();
+  buildFavoriteCereals() {
+    this.clearChildren();
+    this.withChildren( 
+      this.cereals.map(cereal => new pyrite.element('li').withText(cereal));
+    );
   }
 }
 
-buildFavoriteCereals() {
-  this.ul.clearChildren();
-  this.ul.withChildren( 
-    this.cereals.map(cereal => new pyrite.element('li').withText(cereal));
-  );
-}
+const cerealTime = new CerealTime();
 ```
 
 ### Usage

@@ -1,5 +1,7 @@
 # Pyrite
 
+### Examples
+
 Pyrite provides a framework for managing the DOM via Javascript. 
 
 Example:
@@ -101,6 +103,17 @@ buildFavoriteCereals() {
     this.cereals.map(cereal => new pyrite.element('li').withText(cereal));
   );
 }
+```
+
+### Usage
+
+Some day this will be a importable module, but for now:
+
+```
+yarn add @jakeburch/pyrite
+```
+```html
+<script src="node_modules/@jakeburch/pyrite/index.js" type="text/javascript"></script>
 ```
 
 ### Thanks
